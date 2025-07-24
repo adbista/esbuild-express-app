@@ -1,0 +1,31 @@
+{
+  "name": "splunk-otel-example-basic",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc --build",
+    "start": "node dist/index.js",
+    "start-otel": "OTEL_SERVICE_NAME=adam_service node -r @splunk/otel/instrument dist/index.js",
+    "esbuild": "npx ts-node build.ts",
+    "esbuild-start": "node dist_bundle/bundle.js",
+    "esbuild-start-otel": "node -r @splunk/otel/instrument dist_bundle/bundle.js"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/instrumentation": "^0.56.0",
+    "@opentelemetry/instrumentation-express": "^0.42.0",
+    "@opentelemetry/instrumentation-kafkajs": "^0.3.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.52.0",
+    "@splunk/otel": "^3.3.0",
+    "axios": "^0.28.1",
+    "express": "^4.21.2",
+    "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "esbuild": "0.25.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
