@@ -1,7 +1,7 @@
+import '@splunk/otel/instrument';
 import express from 'express';
 import axios from 'axios';
 import { trace, Span } from '@opentelemetry/api';
-
 
 
 const PORT: number = Number(process.env.PORT) || 8079;
@@ -32,8 +32,8 @@ app.listen(PORT, () => {
 });
 
 
-// import { Kafka } from 'kafkajs';
-
+// const Kafka = require('kafkajs'); // Import kafkajs to trigger instrumentation
+// import { Kafka } from 'kafkajs'; // Import kafkajs to trigger instrumentation
 // const kafka = new Kafka({
 //   clientId: 'my-producer',
 //   brokers: ['localhost:9092'],
