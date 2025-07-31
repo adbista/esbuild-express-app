@@ -3,7 +3,7 @@ import express from 'express';
 import axios from 'axios';
 import { trace } from '@opentelemetry/api';
 
-const PORT = Number(process.env.PORT) || 8079;
+const PORT = Number(process.env.PORT) || 8080;
 const app = express();
 const tracer = trace.getTracer('splunk-otel-example-basic');
 
