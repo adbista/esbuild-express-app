@@ -3,27 +3,24 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "esbuild": "npx ts-node build.ts",
-    "esbuild-debug": "node --inspect-brk ./node_modules/ts-node/dist/bin.js build.ts",
-    "esbuild-start": "SPLUNK_PROFILER_ENABLED=true SPLUNK_PROFILER_MEMORY_ENABLED=true node dist_bundle/bundle.js",
-    "esbuild-start-otel": "SPLUNK_METRICS_ENABLED=true node -r @splunk/otel/instrument dist_bundle/bundle.js"
+    "clear-bundle": "rm -rf dist_bundle",
+    "esbuild-esm": "npx ts-node build-esm.ts",
+    "esbuild-esm-start": "SPLUNK_PROFILER_ENABLED=true SPLUNK_PROFILER_MEMORY_ENABLED=true SPLUNK_METRICS_ENABLED=true node dist_bundle/bundle.mjs",
+    "esbuild-esm-start-otel": "SPLUNK_PROFILER_ENABLED=true SPLUNK_PROFILER_MEMORY_ENABLED=true SPLUNK_METRICS_ENABLED=true node -r @splunk/otel/instrument dist_bundle/bundle.mjs",
+    "esbuild-cjs": "npx ts-node build-cjs.ts",
+    "esbuild-cjs-start": "SPLUNK_PROFILER_ENABLED=true SPLUNK_PROFILER_MEMORY_ENABLED=true SPLUNK_METRICS_ENABLED=true node dist_bundle/bundle.js",
+    "esbuild-cjs-start-otel": "SPLUNK_PROFILER_ENABLED=true SPLUNK_PROFILER_MEMORY_ENABLED=true SPLUNK_METRICS_ENABLED=true node -r @splunk/otel/instrument dist_bundle/bundle.js"
   },
   "dependencies": {
-    "@meltwater/esbuild-plugin-node": "^0.1.1",
     "@opentelemetry/api": "^1.8.0",
-    "@splunk/otel": "^3.3.0",
+    "@splunk/otel": "file://Users/adbista/Documents/splunk-otel-js-for-plugin/splunk-otel-js",
     "axios": "^0.28.1",
-    "esbuild-native-node-modules-plugin": "^1.0.3",
-    "esbuild-plugin-copy": "^2.1.1",
-    "express": "^4.17.1",
-    "kafkajs": "^2.2.4",
-    "opentelemetry-esbuild-plugin-node": "^4.1.0"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/node": "^24.1.0",
     "esbuild": "0.25.8",
-    "node-gyp-build": "^4.8.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

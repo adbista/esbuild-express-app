@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "build.ts", "otel-esbuild-plugin.ts"]
+  "include": ["src", "build-esm.ts", "otel-esbuild-plugin.ts"]
 }
